@@ -48,8 +48,8 @@ do_train = True
 
 if do_train:
     # raw_datasets = load_dataset("code_search_net", "python")
-    # raw_datasets = load_dataset("oscar", "unshuffled_deduplicated_hu")
-    raw_datasets = load_dataset("mc4", "hu")
+    raw_datasets = load_dataset("oscar", "unshuffled_deduplicated_hu")
+    # raw_datasets = load_dataset("mc4", "hu")
     print(raw_datasets["train"])
 
     print(raw_datasets["train"][0])
@@ -68,6 +68,6 @@ if do_train:
     original_tokenizer = AutoTokenizer.from_pretrained("gpt2")
     trained_tokenizer = original_tokenizer.train_new_from_iterator(training_corpus, 32000)
 
-    trained_tokenizer.save_pretrained("hun_tokenizer_mc4_32k")
+    trained_tokenizer.save_pretrained("hun_tokenizer_oscar_32k")
 
     test_tokenizer(trained_tokenizer)
